@@ -16,7 +16,7 @@ stty erase '^H' && read -p "请输入 邮箱 > " ddnsemail
 
 stty erase '^H' && read -p "请输入 Key > " auth_key
 
-stty erase '^H' && read -p "请输入 顶级域名> " zone_name
+stty erase '^H' && read -p "请输入 顶级域名 > " zone_name
 
 stty erase '^H' && read -p "请输入 二级域名 > " record_name
 
@@ -24,7 +24,7 @@ wget --no-check-certificate https://raw.githubusercontent.com/ggcs/cloudflare-ap
 
 mv cf-v4-ddns.sh ddns.sh
 
-sed -i -e 's/user@example.com/$ddnsemail/g' ddns.sh
+sed -i -e "s/user@example.com/$ddnsemail/g" ddns.sh
 
 sed -i -e 's/c9320b638f5e225/$auth_key/g' ddns.sh
 
@@ -40,6 +40,6 @@ crontab -l > crontab_test
 
 echo "*/2 * * * * /root/ddns.sh" >crontab_test
 
-crontabcrontab_test
+crontab_test
 
 rm -rf cf-ddns.sh
