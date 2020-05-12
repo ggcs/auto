@@ -34,7 +34,7 @@ sed -i -e "s/www.example.com/$record_name/g" ddns.sh
 
 sed -i -e "s/example.com/$zone_name/g" ddns.sh
 
-chmod +x ddns.sh&&bash ddns.sh
+chmod +x ddns.sh && bash ddns.sh
 
 crontab -l > conf_tmp && echo "*/2 * * * * /root/ddns.sh" >> conf_tmp && crontab conf_tmp && rm -f conf_tmp
 
