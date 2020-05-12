@@ -28,15 +28,13 @@ mv cf-v4-ddns.sh ddns.sh
 
 sed -i -e "s/user@example.com/$ddnsemail/g" ddns.sh
 
-sed -i -e 's/c9320b638f5e225/$auth_key/g' ddns.sh
+sed -i -e "s/c9320b638f5e225/$auth_key/g" ddns.sh
 
-sed -i -e 's/www.example.com/$record_name/g' ddns.sh
+sed -i -e "s/www.example.com/$record_name/g" ddns.sh
 
-sed -i -e 's/example.com/$zone_name/g' ddns.sh
+sed -i -e "s/example.com/$zone_name/g" ddns.sh
 
-chmod +x ddns.sh
-
-bash ddns.sh
+chmod +x ddns.sh&&bash ddns.sh
 
 crontab -l > conf_tmp && echo "*/2 * * * * /root/ddns.sh" >> conf_tmp && crontab conf_tmp && rm -f conf_tmp
 
