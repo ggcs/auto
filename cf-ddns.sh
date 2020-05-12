@@ -10,6 +10,10 @@ echo
 
 echo "#############################################################"
 
+echo "# One click Install cloudflareddns script            #"
+
+echo "#https://github.com/ggcs/auto#"
+
 echo "#############################################################"
 
 echo
