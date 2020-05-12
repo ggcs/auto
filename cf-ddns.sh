@@ -12,13 +12,13 @@ echo "#############################################################"
 
 echo "#############################################################"
 
-stty erase '^H' && read -p "请输入 邮箱 > "ddnsemail
+stty erase '^H' && read -p "请输入 邮箱 > " ddnsemail
 
-stty erase '^H' && read -p "请输入 Key > "auth_key
+stty erase '^H' && read -p "请输入 Key > " auth_key
 
-stty erase '^H' && read -p "请输入 顶级域名> "zone_name
+stty erase '^H' && read -p "请输入 顶级域名> " zone_name
 
-stty erase '^H' && read -p "请输入 二级域名 > "record_name
+stty erase '^H' && read -p "请输入 二级域名 > " record_name
 
 wget --no-check-certificate https://raw.githubusercontent.com/ggcs/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh
 
