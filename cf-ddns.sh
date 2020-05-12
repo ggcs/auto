@@ -12,25 +12,25 @@ echo "#############################################################"
 
 echo "#############################################################"
 
-echo "请输入 邮箱 > " ;read ddnsemail
+stty erase '^H' && read -p "请输入 邮箱 > " ddnsemail
 
-echo "请输入 Key > " ;read auth_key
+stty erase '^H' && read -p "请输入 Key > " auth_key
 
-echo "请输入 顶级域名> " ;read zone_name
+stty erase '^H' && read -p "请输入 顶级域名> " zone_name
 
-echo "请输入 二级域名 > " ;read record_name
+stty erase '^H' && read -p "请输入 二级域名 > " record_name
 
 wget --no-check-certificate https://raw.githubusercontent.com/ggcs/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh
 
 mv cf-v4-ddns.sh ddns.sh
 
-sed -i 's/user@example.com/$ddnsemail/g' ddns.sh
+sed -i -e 's/user@example.com/$ddnsemail/g' ddns.sh
 
-sed -i 's/c9320b638f5e225/$auth_key/g' ddns.sh
+sed -i -e 's/c9320b638f5e225/$auth_key/g' ddns.sh
 
-sed -i 's/www.example.com/$record_name/g' ddns.sh
+sed -i -e 's/www.example.com/$record_name/g' ddns.sh
 
-sed -i 's/example.com/$zone_name/g' ddns.sh
+sed -i -e 's/example.com/$zone_name/g' ddns.sh
 
 chmod +x ddns.sh
 bash ddns.sh
