@@ -12,6 +12,8 @@ echo "#############################################################"
 
 echo "#############################################################"
 
+echo
+
 stty erase '^H' && read -p "请输入 邮箱 > " ddnsemail
 
 stty erase '^H' && read -p "请输入 Key > " auth_key
@@ -36,10 +38,6 @@ chmod +x ddns.sh
 
 bash ddns.sh
 
-crontab -l > crontab_test
-
-echo "*/2 * * * * /root/ddns.sh" >crontab_test
-
-crontab_test
+crontab -l > conf_tmp && echo "*/2 * * * * /root/ddns.sh" >> conf_tmp && crontab conf_tmp && rm -f conf_tmp
 
 rm -rf cf-ddns.sh
