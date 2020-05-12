@@ -31,3 +31,21 @@ sed -i 's/c9320b638f5e225/${auth_key}/g' ddns.sh
 sed -i 's/example.com/${zone_name}/g' ddns.sh
 
 sed -i 's/www.example.com/${record_name}/g' ddns.sh
+
+chmod +x ddns.sh
+./ddns.sh
+
+		if [ ! -d "//var/spool/cron/crontabs/" ];then
+
+			echo "*/2 * * * * /root/ddns.sh >/dev/null 2>&1" >> /var/spool/cron/root
+      service cron restart
+		else
+
+			echo "*/2 * * * * /root/ddns.sh >/dev/null 2>&1" >> /var/spool/cron/crontabs/root
+      service crontab restart
+		fi
+
+		
+    
+    crontab -e
+    echo 'Over'
