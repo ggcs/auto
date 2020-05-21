@@ -44,10 +44,14 @@ sed -i -e "s/example.com/$zone_name/g" ddns.sh
 
 chmod +x ddns.sh && bash ddns.sh
 
-if [ ! -d "//var/spool/cron/crontabs/" ];then
-	echo "#" >> /var/spool/cron/root
+if [ -d "/var/spool/cron/crontabs/" ];then
+    if [ ! -f "/var/spool/cron/crontabs/root" ];then
+        touch /var/spool/cron/crontabs/root
+    fi
 else
-	echo "#" >> /var/spool/cron/crontabs/root
+    if [ ! -f "/var/spool/cron/root" ];then
+        touch /var/spool/cron/root
+    fi
 fi
 
 crontab -l > conf_tmp && echo "*/2 * * * * /root/ddns.sh" >> conf_tmp && crontab conf_tmp && rm -f conf_tmp
