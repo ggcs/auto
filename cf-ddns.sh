@@ -28,7 +28,7 @@ stty erase '^H' && read -p "请输入 二级域名 > " record_name
 
 clear
 
-aptget install -y curl
+apt-get install -y curl
 
 wget --no-check-certificate https://raw.githubusercontent.com/ggcs/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh
 
