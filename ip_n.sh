@@ -142,12 +142,6 @@ check_pid_client(){
 
 }
 
-Restart_ServerStatus_client(){
-
-    /etc/init.d/status-client restart
-
-}
-
 MainFunc() {
 
     echo -e "${Msg_Info}Getting Public IP ..."
@@ -340,10 +334,6 @@ MainFund() {
 
 		sleep 1s
 
-		Restart_ServerStatus_client
-
-		sleep 1s
-
 		Dnspod_ddns
 
 		
@@ -354,7 +344,7 @@ MainFund() {
 
 Dnspod_ddns() {
 
-	bash /root/dnspod_ddns.sh
+	bash /root/ddns.sh
 
 	sleep 1s
 
