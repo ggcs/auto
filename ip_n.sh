@@ -52,17 +52,29 @@ Msg_Success="${Font_Green}[Success] ${Font_Suffix}"
 
 Msg_Fail="${Font_Red}[Failed] ${Font_Suffix}"
 
+Func_NetWork () {
+
+    c=0
+    for file in `ls /sys/class/net`
+
+    do
+        filelist[$c]="${file}"
+        ((c++))
+    done
+
+}
+
 # DHCP释放
 
 Func_DHCP() {
 
-    dhclient -r -v eth0
+    dhclient -r -v ${filelist}
 
     rm -rf /var/lib/dhcp/dhclient.leases
 
     sleep 5s
 
-    dhclient -v eth0
+    dhclient -v ${filelist}
 
     sleep 2s
 
@@ -353,5 +365,5 @@ Dnspod_ddns() {
 }
 
 # 全局入口
-
+Func_NetWork
 MainFunc
