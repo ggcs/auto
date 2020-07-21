@@ -36,6 +36,7 @@ sed -i -e "s/1,/$nodeId,/g" /root/v2ray-poseidon/docker/sspanel/ws/config.json
 sed -i -e "s/http or https:\/\/your.domain/http:\/\/$panelUrl/g" /root/v2ray-poseidon/docker/sspanel/ws/config.json
 sed -i -e "s/your_panel_key/$panelKey/g" /root/v2ray-poseidon/docker/sspanel/ws/config.json
 sed -i -e "s/\"\/\"/\"\/$path\"/g" /root/v2ray-poseidon/docker/sspanel/ws/config.json
+sed -i -e "s/debug/off/g" /root/v2ray-poseidon/docker/sspanel/ws/config.json
 sed -i -e "s/80/$port/g" /root/v2ray-poseidon/docker/sspanel/ws/docker-compose.yml
 
 apt install -y curl
