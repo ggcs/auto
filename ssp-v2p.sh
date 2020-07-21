@@ -31,7 +31,7 @@ rm -rf v2ray-poseidon
 apt install -y git
 git clone https://github.com/ColetteContreras/v2ray-poseidon.git
 
-sed -i -e "s/\"\"/\"$license_key\"/g" /root/v2ray-poseidon/docker/sspanel/ws/config.json
+sed -i -e "s|\"\"|\"$license_key\"|g" /root/v2ray-poseidon/docker/sspanel/ws/config.json
 sed -i -e "s/1,/$nodeId,/g" /root/v2ray-poseidon/docker/sspanel/ws/config.json
 sed -i -e "s/http or https:\/\/your.domain/http:\/\/$panelUrl/g" /root/v2ray-poseidon/docker/sspanel/ws/config.json
 sed -i -e "s/your_panel_key/$panelKey/g" /root/v2ray-poseidon/docker/sspanel/ws/config.json
